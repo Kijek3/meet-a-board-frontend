@@ -5,17 +5,21 @@ import { Inject, Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class ChangeThemeService {
-  private isDark = false;
+  private _isLightTheme = true;
+  get isLightTheme(): boolean {
+    return this._isLightTheme;
+  }
 
   constructor(
     @Inject(DOCUMENT) private document: Document,
   ) { }
 
   switchTheme() {
+    this._isLightTheme = !this._isLightTheme;
+
     let themeLink = this.document.getElementById('app-theme') as HTMLLinkElement;
     if (themeLink) {
-      themeLink.href = `lara-${this.isDark ? 'light' : 'dark'}.css`
+      themeLink.href = `lara-${this._isLightTheme ? 'light' : 'dark'}.css`
     }
-    this.isDark = !this.isDark;
   }
 }

@@ -7,7 +7,7 @@
   </div>
   
   <div class="p-toolbar-group-right">
-      <p-button icon="pi pi-moon" class="mr-2" (click)="switchTheme()"></p-button>
+      <p-button icon="pi {{isLightTheme ? 'pi-moon' : 'pi-sun'}}" class="mr-2" (click)="switchTheme()"></p-button>
       <p-button icon="pi pi-calendar" styleClass="p-button-success mr-2"></p-button>
       <p-button icon="pi pi-times" styleClass="p-button-danger"></p-button>
   </div>
