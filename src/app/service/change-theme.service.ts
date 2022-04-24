@@ -19,7 +19,7 @@ export class ChangeThemeService {
 
     let themeLink = this.document.getElementById('app-theme') as HTMLLinkElement;
     if (themeLink) {
-      themeLink.href = `lara-${this._isLightTheme ? 'light' : 'dark'}.css`
+      themeLink.href = `lara-${this._isLightTheme ? 'light' : 'dark'}.css`;
     }
   }
 }
