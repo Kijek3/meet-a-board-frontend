@@ -1,11 +1,14 @@
+import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { PrimeNGConfig } from 'primeng/api';
-import { ChangeThemeService } from './service/change-theme.service';
+import { MessageService, PrimeNGConfig } from 'primeng/api';
+import { AuthService } from './service/auth/auth.service';
+import { ChangeThemeService } from './service/change-theme/change-theme.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  styleUrls: ['./app.component.scss'],
+  providers: [ MessageService ],
 })
 export class AppComponent implements OnInit {
   isLightTheme: boolean;
