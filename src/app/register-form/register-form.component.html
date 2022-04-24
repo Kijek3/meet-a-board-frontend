@@ -1,0 +1,48 @@
+<p-card styleClass="justify-content-center">
+  <form class="flex flex-column justify-content-end" [formGroup]="registerForm" (ngSubmit)="onRegister()">
+    <div class="flex direction-row">
+      <span class="p-input-icon-left">
+        <i class="pi pi-user"></i>
+        <input type="text" pInputText formControlName="firstName" placeholder="Imię">
+      </span>
+      <span class="ml-2">
+        <input type="text" pInputText formControlName="lastName" placeholder="Nazwisko">
+      </span>
+    </div>
+    <span class="p-input-icon-left mt-2">
+      <i class="pi pi-envelope"></i>
+      <input class="w-12" type="text" pInputText formControlName="email" placeholder="Email">
+    </span>
+    <p-password 
+      styleClass="w-12 mt-2 p-input-icon-right"
+      inputStyleClass="w-12"
+      formControlName="password"
+      placeholder="Hasło"
+      [toggleMask]="true"
+      promptLabel="Wprowadź hasło"
+      weakLabel="Słabe"
+      mediumLabel="Średnie"
+      strongLabel="Mocne :)"
+    >
+      <ng-template pTemplate="header">
+        <h3>Siła hasła</h3>
+      </ng-template>
+      <ng-template pTemplate="footer">
+          <p-divider></p-divider>
+          <p class="mt-2">Sugestie</p>
+          <ul class="pl-2 ml-2 mt-0">
+              <li>Co najmniej jedna mała litera</li>
+              <li>Co najmniej jedna duża litera</li>
+              <li>Co najmniej jedna liczba</li>
+              <li>Co najmniej 8 znaków</li>
+          </ul>
+      </ng-template>
+    </p-password>
+    <p-calendar styleClass="w-12 mt-2" [showIcon]="true" formControlName="dob" placeholder="Data urodzenia"></p-calendar>
+    <span class="p-input-icon-left mt-2">
+      <i class="pi pi-map-marker"></i>
+      <input class="w-12" type="text" pInputText formControlName="city" placeholder="Miasto">
+    </span>
+    <p-button class="flex justify-content-end mt-2" type="submit" [disabled]="!registerForm.valid">Zarejestruj się</p-button>
+  </form>
+</p-card>
