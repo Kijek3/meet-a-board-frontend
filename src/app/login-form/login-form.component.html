@@ -1,0 +1,17 @@
+<p-card styleClass="justify-content-center">
+  <form class="flex flex-column justify-content-end" [formGroup]="loginForm" (ngSubmit)="onLogin()">
+    <span class="p-input-icon-left">
+      <i class="pi pi-envelope"></i>
+      <input type="text" pInputText formControlName="email" placeholder="Email">         
+    </span>
+    <span class="p-input-icon-left mt-2">
+      <i class="pi pi-lock"></i>
+      <input type="password" pInputText formControlName="password" placeholder="Hasło">         
+    </span>
+    <div class="mt-2">
+      <p-checkbox formControlName="remember" [binary]="true" inputId="binary"></p-checkbox>
+      <label for="binary" class="ml-2">Zapamiętaj mnie</label>
+    </div>
+    <p-button class="flex justify-content-end mt-2" type="submit" [disabled]="!loginForm.valid">Zaloguj się</p-button>
+  </form>
+</p-card>
