@@ -19,6 +19,6 @@ export class AuthService {
   }
 
   register(args: RegisterForm) {
-    return this.http.post('http://localhost:8000/auth/register', { ...args });
+    return this.http.put('http://localhost:8000/auth/register', { ...args });
   }
 }
