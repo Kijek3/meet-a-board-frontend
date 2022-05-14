@@ -1,21 +1,32 @@
-<p-card styleClass="justify-content-center">
-  <form class="flex flex-column justify-content-end" [formGroup]="loginForm" (ngSubmit)="onLogin()">
-    <div class="p-inputgroup">
+<div class="grid p-fluid card">
+  <form [formGroup]="loginForm" (ngSubmit)="onLogin()">
+    <div class="p-inputgroup col-12">
       <span class="p-inputgroup-addon">
         <i class="pi pi-envelope"></i>
       </span>
       <input type="text" pInputText formControlName="email" placeholder="Email">         
     </div>
-    <div class="p-inputgroup mt-2">
+    <div class="p-inputgroup col-12">
       <span class="p-inputgroup-addon">
         <i class="pi pi-lock"></i>
       </span>
-      <input type="password" pInputText formControlName="password" placeholder="Hasło">
+      <!-- <input type="password" pInputText formControlName="password" placeholder="Hasło"> -->
+      <p-password 
+        styleClass="w-12 p-input-icon-right"
+        inputStyleClass="w-12"
+        formControlName="password"
+        placeholder="Hasło"
+        [toggleMask]="true"
+        [feedback]="false"
+      >
+      </p-password>
     </div>
-    <div class="mt-2">
+    <div class="col-12">
       <p-checkbox formControlName="remember" [binary]="true" inputId="binary"></p-checkbox>
       <label for="binary" class="ml-2">Zapamiętaj mnie</label>
     </div>
-    <p-button class="flex justify-content-end mt-2" type="submit" [disabled]="!loginForm.valid">Zaloguj się</p-button>
+    <div class="col-12">
+      <p-button type="submit" [disabled]="!loginForm.valid">Zaloguj się</p-button>
+    </div>
   </form>
-</p-card>
+</div>
