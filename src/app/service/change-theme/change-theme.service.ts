@@ -17,7 +17,7 @@ export class ChangeThemeService {
   switchTheme() {
     this._isLightTheme = !this._isLightTheme;
 
-    let themeLink = this.document.getElementById('app-theme') as HTMLLinkElement;
+    const themeLink = this.document.getElementById('app-theme') as HTMLLinkElement;
     if (themeLink) {
       themeLink.href = `lara-${this._isLightTheme ? 'light' : 'dark'}.css`;
     }

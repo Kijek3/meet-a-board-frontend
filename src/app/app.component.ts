@@ -1,7 +1,5 @@
-import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { MessageService, PrimeNGConfig } from 'primeng/api';
-import { AuthService } from './service/auth/auth.service';
 import { ChangeThemeService } from './service/change-theme/change-theme.service';
 
 @Component({
