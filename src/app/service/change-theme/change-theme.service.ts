@@ -12,12 +12,17 @@ export class ChangeThemeService {
 
   constructor(
     @Inject(DOCUMENT) private document: Document,
-  ) { }
+  ) { 
+    this.setTheme();
+  }
 
-  switchTheme() {
+  switchTheme(): void {
     this._isLightTheme = !this._isLightTheme;
+    this.setTheme();
+  }
 
-    let themeLink = this.document.getElementById('app-theme') as HTMLLinkElement;
+  setTheme() {
+    const themeLink = this.document.getElementById('app-theme') as HTMLLinkElement;
     if (themeLink) {
       themeLink.href = `lara-${this._isLightTheme ? 'light' : 'dark'}.css`;
     }
