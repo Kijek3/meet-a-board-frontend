@@ -1,23 +1,23 @@
-<p-card styleClass="justify-content-center">
-  <form class="flex flex-column justify-content-end" [formGroup]="registerForm" (ngSubmit)="onRegister()">
+<div class="grid p-fluid card">
+  <form [formGroup]="registerForm" (ngSubmit)="onRegister()">
     <div class="flex direction-row">
-      <div class="p-inputgroup">
+      <div class="p-inputgroup col-7">
         <span class="p-inputgroup-addon">
           <i class="pi pi-user"></i>
         </span>
         <input type="text" pInputText formControlName="firstName" placeholder="Imię">
       </div>
-      <span class="ml-2">
+      <span class="col-5">
         <input type="text" pInputText formControlName="lastName" placeholder="Nazwisko">
       </span>
     </div>
-    <div class="p-inputgroup mt-2">
+    <div class="p-inputgroup col-12">
       <span class="p-inputgroup-addon">
         <i class="pi pi-envelope"></i>
       </span>
-      <input class="w-12" type="text" pInputText formControlName="email" placeholder="Email">
+      <input type="text" pInputText formControlName="email" placeholder="Email">
     </div>
-    <div class="p-inputgroup mt-2">
+    <div class="p-inputgroup col-12">
       <span class="p-inputgroup-addon">
         <i class="pi pi-lock"></i>
       </span>
@@ -47,18 +47,20 @@
         </ng-template>
       </p-password>
     </div>
-    <div class="p-inputgroup mt-2">
+    <div class="p-inputgroup col-12">
       <span class="p-inputgroup-addon">
         <i class="pi pi-calendar"></i>
       </span>
-      <p-calendar styleClass="w-12" [showIcon]="false" formControlName="dob" placeholder="Data urodzenia"></p-calendar>
+      <p-calendar [showIcon]="false" formControlName="dob" placeholder="Data urodzenia"></p-calendar>
     </div>
-    <div class="p-inputgroup mt-2">
+    <div class="p-inputgroup col-12">
       <span class="p-inputgroup-addon">
         <i class="pi pi-map-marker"></i>
       </span>
-      <input class="w-12" type="text" pInputText formControlName="city" placeholder="Miasto">
+      <input type="text" pInputText formControlName="city" placeholder="Miasto">
     </div>
-    <p-button class="flex justify-content-end mt-2" type="submit" [disabled]="!registerForm.valid">Zarejestruj się</p-button>
+    <div class="col-12">
+      <p-button type="submit" [disabled]="!registerForm.valid">Zarejestruj się</p-button>
+    </div>
   </form>
-</p-card>
+</div>
