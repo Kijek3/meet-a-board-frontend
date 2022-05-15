@@ -1,4 +1,4 @@
-<p-toolbar styleClass="mb-5 p-2">
+<p-toolbar *ngIf="userLogged" styleClass="mb-5 p-2">
   <div class="w-12 flex">
     <div class="col-3">
       <div>
@@ -18,13 +18,18 @@
         <p-button label="Dodaj" icon="pi pi-plus" class="mr-2"></p-button>
         <p-button label="Biblioteka" icon="pi pi-book" class="mr-2"></p-button>
         <p-button icon="pi {{isLightTheme ? 'pi-moon' : 'pi-sun'}}" class="mr-2" (click)="switchTheme()"></p-button>
-        <p-button icon="pi pi-user" styleClass="p-button-success" routerLink="/login"></p-button>
+        <p-button icon="pi pi-user" styleClass="p-button-success" (click)="logout()"></p-button>
       </div>
     </div>
   </div>
 </p-toolbar>
 
 <p-toast position="top-center"></p-toast>
-<div class="flex justify-content-center">
+<div class="flex justify-content-center align-items-center">
+  <div *ngIf="!userLogged" class="flex flex-column align-items-center mr-8 ml-8">
+    <img src="../assets/big_logo.png" width="512"/>
+    <p-button label="Zarejestruj się" icon="pi pi-user-plus" class="w-full" styleClass="w-full" routerLink="/register"></p-button>
+    <p-button label="Zaloguj się" icon="pi pi-user" class="w-full mt-4" styleClass="w-full" routerLink="/login"></p-button>
+  </div>
   <router-outlet></router-outlet>
 </div>

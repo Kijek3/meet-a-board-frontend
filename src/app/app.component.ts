@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { MessageService, PrimeNGConfig } from 'primeng/api';
+import { AuthService } from './service/auth/auth.service';
 import { ChangeThemeService } from './service/change-theme/change-theme.service';
 
 @Component({
@@ -11,16 +13,24 @@ import { ChangeThemeService } from './service/change-theme/change-theme.service'
 export class AppComponent implements OnInit {
   isLightTheme: boolean;
   searchValue: string;
+  userLogged: boolean;
 
   constructor(
-    private primengConfig: PrimeNGConfig,
+    private authService: AuthService,
     private changeThemeService: ChangeThemeService,
+    private messageService: MessageService,
+    private primengConfig: PrimeNGConfig,
+    private router: Router,
   ) {
     this.isLightTheme = changeThemeService.isLightTheme;
   }
 
   ngOnInit(): void {
     this.primengConfig.ripple = true;
+    this.authService.checkToken();
+    this.authService.userLoggedIn.subscribe((value) => {
+      this.userLogged = value;
+    });
   }
 
   switchTheme(): void {
@@ -32,5 +42,15 @@ export class AppComponent implements OnInit {
     if (event.key === 'Enter') {
       console.log(this.searchValue);
     }
+  }
+
+  logout(): void {
+    this.authService.logout();
+    this.router.navigateByUrl('/');
+    this.messageService.add({
+      severity: 'success',
+      summary: 'Pomyślnie wylogowano',
+      detail: 'Do zobaczenia później!',
+    });
   }
 }
