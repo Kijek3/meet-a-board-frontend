@@ -2,7 +2,7 @@ import { DOCUMENT } from '@angular/common';
 import { Inject, Injectable } from '@angular/core';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class ChangeThemeService {
   private _isLightTheme = true;
@@ -13,6 +13,7 @@ export class ChangeThemeService {
   constructor(
     @Inject(DOCUMENT) private document: Document,
   ) {
+    this.getTheme();
     this.setTheme();
   }
 
@@ -21,7 +22,14 @@ export class ChangeThemeService {
     this.setTheme();
   }
 
-  setTheme() {
+  getTheme(): void {
+    if (localStorage.getItem('theme') === 'dark') {
+      this._isLightTheme = false;
+    }
+  }
+
+  setTheme(): void {
+    localStorage.setItem('theme', this._isLightTheme ? 'light' : 'dark');
     const themeLink = this.document.getElementById('app-theme') as HTMLLinkElement;
     if (themeLink) {
       themeLink.href = `lara-${this._isLightTheme ? 'light' : 'dark'}.css`;
