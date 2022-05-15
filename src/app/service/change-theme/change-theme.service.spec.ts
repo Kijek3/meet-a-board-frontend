@@ -18,13 +18,13 @@ describe('ChangeThemeService', () => {
   it('should change theme', () => {
     service.switchTheme();
 
-    expect(service['_isLightTheme']).toBeTrue();
+    expect(service['_isLightTheme']).toBeFalse();
   });
 
   it('should change theme back', () => {
     service.switchTheme();
     service.switchTheme();
 
-    expect(service['_isLightTheme']).toBeFalse();
+    expect(service['_isLightTheme']).toBeTrue();
   });
 });
