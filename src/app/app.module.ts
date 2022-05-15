@@ -24,7 +24,7 @@ import { RegisterFormComponent } from './register-form/register-form.component';
   declarations: [
     AppComponent,
     LoginFormComponent,
-    RegisterFormComponent
+    RegisterFormComponent,
   ],
   imports: [
     AppRoutingModule,
