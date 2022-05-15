@@ -10,6 +10,7 @@ import { ChangeThemeService } from './service/change-theme/change-theme.service'
 })
 export class AppComponent implements OnInit {
   isLightTheme: boolean;
+  searchValue: string;
 
   constructor(
     private primengConfig: PrimeNGConfig,
@@ -25,5 +26,11 @@ export class AppComponent implements OnInit {
   switchTheme(): void {
     this.changeThemeService.switchTheme();
     this.isLightTheme = !this.isLightTheme;
+  }
+
+  onSearch(event: KeyboardEvent) {
+    if (event.key === 'Enter') {
+      console.log(this.searchValue);
+    }
   }
 }

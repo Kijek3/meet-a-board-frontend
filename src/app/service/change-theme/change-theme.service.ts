@@ -12,7 +12,7 @@ export class ChangeThemeService {
 
   constructor(
     @Inject(DOCUMENT) private document: Document,
-  ) { 
+  ) {
     this.setTheme();
   }
 
@@ -20,7 +20,7 @@ export class ChangeThemeService {
     this._isLightTheme = !this._isLightTheme;
     this.setTheme();
   }
-  
+
   setTheme() {
     const themeLink = this.document.getElementById('app-theme') as HTMLLinkElement;
     if (themeLink) {
