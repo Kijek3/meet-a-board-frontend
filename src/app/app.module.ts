@@ -17,7 +17,7 @@ import { PasswordModule } from 'primeng/password';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginFormComponent } from './login-form/login-form.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { RegisterFormComponent } from './register-form/register-form.component';
 
 @NgModule({
@@ -43,6 +43,7 @@ import { RegisterFormComponent } from './register-form/register-form.component';
     MessageModule,
     ToastModule,
     PasswordModule,
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
