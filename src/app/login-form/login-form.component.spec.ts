@@ -14,8 +14,8 @@ describe('LoginFormComponent', () => {
   let component: LoginFormComponent;
   let fixture: ComponentFixture<LoginFormComponent>;
 
-  let authLoginSpy: any;
-  let messageClearSpy: any;
+  let authLoginSpy: unknown;
+  let messageClearSpy: unknown;
 
   let loginFormGroup: FormGroup;
 
