@@ -1,4 +1,6 @@
-# MeetABoardFrontend
+<p align="center">
+  <img alt="logo" src="src/assets/big_logo.png" width="256" />
+</p>
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.3.3.
 
