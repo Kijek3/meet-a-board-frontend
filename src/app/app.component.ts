@@ -44,6 +44,9 @@ export class AppComponent implements OnInit {
     this.authService.checkToken();
     this.authService.userLoggedIn.subscribe((value) => {
       this.userLogged = value;
+      if (!this.userLogged) {
+        this.router.navigateByUrl('/');
+      }
     });
   }
 
