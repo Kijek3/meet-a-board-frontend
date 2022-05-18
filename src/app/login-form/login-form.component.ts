@@ -24,9 +24,6 @@ export class LoginFormComponent {
   onLogin(): void {
     this.messageService.clear();
     this.authService.login(this.loginForm.value).subscribe({
-      next: (data) => {
-        console.log(data);
-      },
       error: (error: Error) => {
         this.messageService.add(
           {
