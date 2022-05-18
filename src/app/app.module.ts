@@ -13,18 +13,21 @@ import { MessageModule } from 'primeng/message';
 import { ToastModule } from 'primeng/toast';
 import { InputTextModule } from 'primeng/inputtext';
 import { PasswordModule } from 'primeng/password';
+import { TieredMenuModule } from 'primeng/tieredmenu';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginFormComponent } from './login-form/login-form.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RegisterFormComponent } from './register-form/register-form.component';
+import { UserSettingsComponent } from './user-settings/user-settings.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginFormComponent,
     RegisterFormComponent,
+    UserSettingsComponent,
   ],
   imports: [
     AppRoutingModule,
@@ -39,6 +42,7 @@ import { RegisterFormComponent } from './register-form/register-form.component';
     DividerModule,
     InputTextModule,
     ToolbarModule,
+    TieredMenuModule,
     MessagesModule,
     MessageModule,
     ToastModule,
