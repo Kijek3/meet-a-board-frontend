@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { MessageService, PrimeNGConfig } from 'primeng/api';
+import { MenuItem, MessageService, PrimeNGConfig } from 'primeng/api';
 import { AuthService } from './service/auth/auth.service';
 import { ChangeThemeService } from './service/change-theme/change-theme.service';
 
@@ -14,6 +14,20 @@ export class AppComponent implements OnInit {
   isLightTheme: boolean;
   searchValue: string;
   userLogged: boolean;
+  menuItems: MenuItem[] = [
+    {
+      label: 'Ustawienia',
+      icon: 'pi pi-cog',
+      routerLink: '/settings',
+    },
+    {
+      label: 'Wyloguj się',
+      icon: 'pi pi-power-off',
+      command: () => {
+        this.logout();
+      },
+    },
+  ];
 
   constructor(
     private authService: AuthService,
