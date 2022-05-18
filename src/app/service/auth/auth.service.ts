@@ -30,12 +30,11 @@ export class AuthService {
     return throwError(() => new Error(errorMessage));
   }
 
-  private setToken(token: string): void {
-    localStorage.setItem('token', token);
+  private setToken(token: string, remember: boolean): void {
+    remember ? localStorage.setItem('token', token) : sessionStorage.setItem('token', token);
   }
 
-  private logUser(token: string): void {
-    this.setToken(token);
+  private logUser(): void {
     this.userLoggedIn.next(true);
     this.router.navigateByUrl('/');
   }
@@ -45,7 +44,8 @@ export class AuthService {
       catchError(this.handleError)
     ).pipe(
       map(result => {
-        this.logUser(result.token);
+        this.setToken(result.token, args.remember);
+        this.logUser();
       })
     );
   }
@@ -55,13 +55,14 @@ export class AuthService {
       catchError(this.handleError)
     ).pipe(
       map(result => {
-        this.logUser(result.token);
+        this.setToken(result.token, false);
+        this.logUser();
       })
     );
   }
 
   checkToken(): void {
-    const token = localStorage.getItem('token');
+    const token = localStorage.getItem('token') || sessionStorage.getItem('token');
     if (!token) {
       return;
     }
@@ -74,6 +75,7 @@ export class AuthService {
 
   logout(): void {
     localStorage.removeItem('token');
+    sessionStorage.removeItem('token');
     this.userLoggedIn.next(false);
   }
 }
