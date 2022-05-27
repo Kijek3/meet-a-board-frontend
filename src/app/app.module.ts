@@ -13,6 +13,7 @@ import { MessageModule } from 'primeng/message';
 import { ToastModule } from 'primeng/toast';
 import { InputTextModule } from 'primeng/inputtext';
 import { PasswordModule } from 'primeng/password';
+import { ProgressSpinnerModule } from 'primeng/progressspinner';
 import { TieredMenuModule } from 'primeng/tieredmenu';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -47,6 +48,7 @@ import { UserSettingsComponent } from './user-settings/user-settings.component';
     MessageModule,
     ToastModule,
     PasswordModule,
+    ProgressSpinnerModule,
     FormsModule,
   ],
   providers: [],

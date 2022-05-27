@@ -10,6 +10,7 @@ import { AuthService } from '../service/auth/auth.service';
   styleUrls: ['./register-form.component.scss'],
 })
 export class RegisterFormComponent {
+  loading = false;
 
   constructor(
     private messageService: MessageService,
@@ -27,12 +28,14 @@ export class RegisterFormComponent {
   });
 
   onRegister(): void {
+    this.loading = true;
     this.messageService.clear();
     this.authService.register(this.registerForm.value).subscribe({
-      next: (data) => {
-        console.log(data);
+      next: () => {
+        this.loading = false;
       },
       error: (error: HttpErrorResponse) => {
+        this.loading = false;
         this.messageService.add(
           {
             severity: 'error',
