@@ -6,7 +6,7 @@ import { MeetingItem } from 'src/app/model/meeting.model';
 @Injectable({
   providedIn: 'root',
 })
-export class MeetingServiceService {
+export class MeetingService {
 
   constructor(
     private http: HttpClient,

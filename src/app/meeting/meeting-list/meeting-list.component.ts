@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { MeetingItem } from 'src/app/model/meeting.model';
+import { MeetingService } from 'src/app/service/meeting/meeting.service';
 
 @Component({
   selector: 'app-meeting-list',
@@ -7,6 +9,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MeetingListComponent implements OnInit {
   loading = true;
+  meetingList: MeetingItem[];
+
+  constructor(
+    private meetingService: MeetingService,
+  ) {}
 
   ngOnInit(): void {
     this.getMeetings();
