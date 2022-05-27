@@ -23,6 +23,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RegisterFormComponent } from './register-form/register-form.component';
 import { UserSettingsComponent } from './user-settings/user-settings.component';
 import { MeetingListComponent } from './meeting/meeting-list/meeting-list.component';
+import { MeetingListItemComponent } from './meeting/meeting-list/meeting-list-item/meeting-list-item.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import { MeetingListComponent } from './meeting/meeting-list/meeting-list.compon
     RegisterFormComponent,
     UserSettingsComponent,
     MeetingListComponent,
+    MeetingListItemComponent,
   ],
   imports: [
     AppRoutingModule,
