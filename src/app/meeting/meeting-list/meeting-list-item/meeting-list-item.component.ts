@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { MeetingItem } from 'src/app/model/meeting.model';
 
 @Component({
@@ -6,6 +6,10 @@ import { MeetingItem } from 'src/app/model/meeting.model';
   templateUrl: './meeting-list-item.component.html',
   styleUrls: ['./meeting-list-item.component.scss'],
 })
-export class MeetingListItemComponent {
+export class MeetingListItemComponent implements OnInit {
   @Input() meetingItem: MeetingItem;
+
+  ngOnInit(): void {
+    console.log(this.meetingItem);
+  }
 }

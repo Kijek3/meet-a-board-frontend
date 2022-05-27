@@ -1,1 +1,7 @@
-<p>meeting-list works!</p>
+<h2 class="text-center">🎲 Poszukaj swojej następnej przygody...</h2>
+<div class="w-full container border-round">
+  <ng-container *ngFor="let meeting of meetingList">
+    <app-meeting-list-item [meetingItem]="meeting"></app-meeting-list-item>
+    <p-divider></p-divider>
+  </ng-container>
+</div>
