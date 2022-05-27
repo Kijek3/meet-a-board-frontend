@@ -22,6 +22,7 @@ import { LoginFormComponent } from './login-form/login-form.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RegisterFormComponent } from './register-form/register-form.component';
 import { UserSettingsComponent } from './user-settings/user-settings.component';
+import { MeetingListComponent } from './meeting/meeting-list/meeting-list.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { UserSettingsComponent } from './user-settings/user-settings.component';
     LoginFormComponent,
     RegisterFormComponent,
     UserSettingsComponent,
+    MeetingListComponent,
   ],
   imports: [
     AppRoutingModule,
