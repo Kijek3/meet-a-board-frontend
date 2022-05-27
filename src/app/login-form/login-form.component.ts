@@ -9,6 +9,8 @@ import { AuthService } from '../service/auth/auth.service';
   styleUrls: ['./login-form.component.scss'],
 })
 export class LoginFormComponent {
+  loading = false;
+
   constructor(
     private authService: AuthService,
     private messageService: MessageService,
@@ -22,9 +24,14 @@ export class LoginFormComponent {
   });
 
   onLogin(): void {
+    this.loading = true;
     this.messageService.clear();
     this.authService.login(this.loginForm.value).subscribe({
+      next: () => {
+        this.loading = false;
+      },
       error: (error: Error) => {
+        this.loading = false;
         this.messageService.add(
           {
             severity: 'error',
