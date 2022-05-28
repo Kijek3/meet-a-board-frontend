@@ -70,7 +70,6 @@ export class AuthService {
     const tokenDecoded = jwtDecode(token) as TokenInfo;
     const currentTime = Math.floor(Date.now() / 1000);
     this.userLoggedIn.next(tokenDecoded.exp > currentTime);
-    this.router.navigateByUrl('/');
   }
 
   logout(): void {
