@@ -36,6 +36,7 @@ export class AuthService {
 
   private logUser(): void {
     this.userLoggedIn.next(true);
+    this.router.navigateByUrl('/');
   }
 
   login(args: LoginForm): Observable<void> {
