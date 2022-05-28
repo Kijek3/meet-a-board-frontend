@@ -1,4 +1,29 @@
-<div class="flex flex-row container p-2">
-  <img [src]='meetingItem.game.thumbnail' alt="Miniaturka gry" width="150" height="150" class="mr-5 border-round">
-  <h3 class="m-0">{{meetingItem.title}}</h3>
-</div>
+<a routerLink={{meetingItem.id}}>
+  <div class="flex flex-row container p-2">
+    <img [src]='meetingItem.game.thumbnail' alt="Miniaturka gry" width="150" height="150" class="mr-5 border-round">
+    <div class="flex flex-column">
+      <div class="flex flex-column meeting-up-section">
+        <h3 class="m-0">{{meetingItem.title}}</h3>
+        <p>{{meetingItem.description}}</p>
+      </div>
+      <div class="flex flex-column meeting-down-section">
+        <span class="flex align-items-center">
+          <i class="pi pi-calendar mr-2"></i>
+          <p class="m-0">{{meetingDate}}</p>
+        </span>
+        <span class="flex align-items-center">
+          <i class="pi pi-clock mt-1 mr-2"></i>
+          <p class="m-0">{{meetingItem.startHour}} - {{meetingItem.endHour}}</p>
+        </span>
+        <span class="flex align-items-center">
+          <i class="pi pi-map-marker mt-1 mr-2"></i>
+          <p class="m-0">{{meetingItem.city}}</p>
+        </span>
+        <span *ngIf="meetingItem.minPlayers && meetingItem.maxPlayers" class="flex align-items-center">
+          <i class="pi pi-users mt-1 mr-2"></i>
+          <p class="m-0">{{meetingItem.minPlayers}} - {{meetingItem.maxPlayers}}</p>
+        </span>
+      </div>
+    </div>
+  </div>
+</a>

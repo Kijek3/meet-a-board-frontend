@@ -23,6 +23,9 @@ export class MeetingListComponent implements OnInit {
       city: 'Kraków',
       address: 'Hex',
       isInPublicPlace: true,
+      minPlayers: 2,
+      maxPlayers: 4,
+      description: 'Vestibulum id elit porta, ullamcorper velit eu, dignissim diam. Etiam ultrices, magna eu interdum iaculis, lectus tellus semper sapien, eget hendrerit tortor orci sed nibh. Quisque porttitor finibus dolor vitae mattis. Nunc sollicitudin neque viverra orci commodo, sed hendrerit enim feugiat. Maecenas at porttitor justo, at pulvinar dui. Donec et tellus ac metus tincidunt fringilla non sit amet quam. Vivamus aliquet ligula dolor, non rhoncus arcu lobortis pretium. Nunc neque dui, accumsan nec ligula maximus, sodales ullamcorper nunc. Nulla ut tincidunt dui. Aenean rutrum at tortor eget blandit. Donec varius vitae nulla vitae venenatis. Morbi arcu leo, iaculis sit amet ipsum ut, fringilla gravida massa. Morbi fermentum sem non elementum pellentesque.  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum eget tincidunt lorem. Fusce sit amet porta mauris. Aliquam hendrerit nibh sed ante congue convallis. Morbi tincidunt odio lorem, non elementum est viverra nec. Quisque ac arcu nec tortor efficitur semper. Quisque a luctus erat, in pretium urna. Duis vitae leo placerat, porta nunc ac, bibendum elit. Sed finibus turpis in augue gravida tincidunt. Cras non tempus ex. Vestibulum semper, tellus pellentesque laoreet mollis, augue ex convallis ex, eu tincidunt velit magna quis felis. Nulla facilisi. Pellentesque ligula sapien, porta id dignissim ac, bibendum vitae libero. Phasellus pharetra augue ut risus fringilla fringilla. Fusce eu nunc posuere, facilisis sapien eget, tempus sapien. Aenean scelerisque massa ac sapien tincidunt iaculis. Pellentesque ut magna sit amet enim semper hendrerit. ',
       game: {
         title: 'Splendor',
         thumbnail: 'https://glamrap.pl/wp-content/uploads/2022/05/sentino-3.jpg',

@@ -8,8 +8,13 @@ import { MeetingItem } from 'src/app/model/meeting.model';
 })
 export class MeetingListItemComponent implements OnInit {
   @Input() meetingItem: MeetingItem;
+  meetingDate: string;
 
   ngOnInit(): void {
-    console.log(this.meetingItem);
+    this.parseDate();
+  }
+
+  private parseDate(): void {
+    this.meetingDate = new Date(this.meetingItem.date).toLocaleDateString('pl', { day: 'numeric', month: 'long' });
   }
 }
