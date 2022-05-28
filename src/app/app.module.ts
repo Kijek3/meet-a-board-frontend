@@ -24,6 +24,7 @@ import { RegisterFormComponent } from './register-form/register-form.component';
 import { UserSettingsComponent } from './user-settings/user-settings.component';
 import { MeetingListComponent } from './meeting/meeting-list/meeting-list.component';
 import { MeetingListItemComponent } from './meeting/meeting-list/meeting-list-item/meeting-list-item.component';
+import { MeetingDetailsComponent } from './meeting/meeting-details/meeting-details.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import { MeetingListItemComponent } from './meeting/meeting-list/meeting-list-it
     UserSettingsComponent,
     MeetingListComponent,
     MeetingListItemComponent,
+    MeetingDetailsComponent,
   ],
   imports: [
     AppRoutingModule,
