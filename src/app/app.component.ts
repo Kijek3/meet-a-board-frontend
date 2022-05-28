@@ -11,21 +11,42 @@ import { ChangeThemeService } from './service/change-theme/change-theme.service'
   providers: [ MessageService ],
 })
 export class AppComponent implements OnInit {
-  isLightTheme: boolean;
+  isLightTheme = true;
   searchValue: string;
   userLogged: boolean;
   menuItems: MenuItem[] = [
     {
-      label: 'Ustawienia',
-      icon: 'pi pi-cog',
-      routerLink: '/settings',
+      label: 'Dodaj',
+      icon: 'pi pi-plus',
     },
     {
-      label: 'Wyloguj się',
-      icon: 'pi pi-power-off',
-      command: () => {
-        this.logout();
-      },
+      label: 'Biblioteka',
+      icon: 'pi pi-book',
+    },
+    {
+      label: 'Profil',
+      icon: 'pi pi-user',
+      items: [
+        {
+          label: 'Ustawienia',
+          icon: 'pi pi-cog',
+          routerLink: '/settings',
+        },
+        {
+          label: 'Tryb nocny',
+          icon: 'pi pi-moon',
+          command: () => {
+            this.switchTheme();
+          },
+        },
+        {
+          label: 'Wyloguj się',
+          icon: 'pi pi-power-off',
+          command: () => {
+            this.logout();
+          },
+        },
+      ],
     },
   ];
 

@@ -1,29 +1,16 @@
-<p-toolbar *ngIf="userLogged" styleClass="mb-3 p-2">
-  <div class="w-12 flex">
-    <div class="col-3">
-      <div>
-        <a routerLink="/" routerLinkActive="active">
-          <img src="../assets/logo.png" width="64"/>
-        </a>
-      </div>
-    </div>
-    <div class="col-6 flex align-items-center justify-content-center">
-      <span class="p-input-icon-left w-12">
-        <i class="pi pi-search"></i>
-        <input type="text" pInputText class="w-12" placeholder="Wyszukaj ogłoszenie" [(ngModel)]="searchValue" (keydown)="onSearch($event)"/>
-      </span>
-    </div>
-    <div class="col-3 flex align-items-center justify-content-end">
-      <div>
-        <p-button label="Dodaj" icon="pi pi-plus" class="mr-2"></p-button>
-        <p-button label="Biblioteka" icon="pi pi-book" class="mr-2"></p-button>
-        <p-button icon="pi {{isLightTheme ? 'pi-moon' : 'pi-sun'}}" class="mr-2" (click)="switchTheme()"></p-button>
-        <p-button icon="pi pi-user" styleClass="p-button-success" (click)="userMenu.toggle($event)"></p-button>
-        <p-tieredMenu #userMenu [model]="menuItems" [popup]="true"></p-tieredMenu>
-      </div>
-    </div>
-  </div>
-</p-toolbar>
+<p-menubar [model]="menuItems" *ngIf="userLogged">
+  <ng-template pTemplate="start">
+    <a routerLink="/" routerLinkActive="active">
+      <img src="../assets/logo.png" width="64"/>
+    </a>
+  </ng-template>
+  <ng-template pTemplate="end" styleClass="w-5">
+    <span class="p-input-icon-left w-12">
+      <i class="pi pi-search"></i>
+      <input type="text" pInputText class="w-12" placeholder="Wyszukaj ogłoszenie" [(ngModel)]="searchValue" (keydown)="onSearch($event)"/>
+    </span>
+  </ng-template>
+</p-menubar>
 
 <p-toast position="top-center"></p-toast>
 <div class="flex justify-content-center align-items-center">
@@ -34,3 +21,4 @@
   </div>
   <router-outlet></router-outlet>
 </div>
+

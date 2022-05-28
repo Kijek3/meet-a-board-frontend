@@ -7,7 +7,11 @@ body {
 	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
 	font-size: 1rem;
 	font-weight: normal;
-  color: var(--text-color);
+  color: var(--text-color)
+}
+
+.p-menubar-end {
+  width: 40%;
 }
 
 a {
