@@ -7,6 +7,7 @@ import { CalendarModule } from 'primeng/calendar';
 import { CardModule } from 'primeng/card';
 import { CheckboxModule } from 'primeng/checkbox';
 import { DividerModule } from 'primeng/divider';
+import { MenubarModule } from 'primeng/menubar';
 import { ToolbarModule } from 'primeng/toolbar';
 import { MessagesModule } from 'primeng/messages';
 import { MessageModule } from 'primeng/message';
@@ -42,6 +43,7 @@ import { UserSettingsComponent } from './user-settings/user-settings.component';
     CheckboxModule,
     DividerModule,
     InputTextModule,
+    MenubarModule,
     ToolbarModule,
     TieredMenuModule,
     MessagesModule,
