@@ -44,9 +44,7 @@ export class AppComponent implements OnInit {
     this.authService.checkToken();
     this.authService.userLoggedIn.subscribe((value) => {
       this.userLogged = value;
-      if (!this.userLogged) {
-        this.router.navigateByUrl('/');
-      }
+      this.userLogged ? this.router.navigateByUrl('/') : this.router.navigateByUrl('/login');
     });
   }
 
@@ -63,7 +61,7 @@ export class AppComponent implements OnInit {
 
   logout(): void {
     this.authService.logout();
-    this.router.navigateByUrl('/');
+    this.router.navigateByUrl('/login');
     this.messageService.add({
       severity: 'success',
       summary: 'Pomyślnie wylogowano',
