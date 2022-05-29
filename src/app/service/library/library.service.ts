@@ -1,6 +1,6 @@
-import { HttpClient, HttpParams } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { catchError, map, Observable, throwError } from 'rxjs';
+import { catchError, Observable, throwError } from 'rxjs';
 import { Game } from 'src/app/model/game.model';
 import { LibraryItem } from 'src/app/model/library.model';
 
@@ -14,25 +14,25 @@ export class LibraryService {
   ) { }
 
   addGame(game: Game): Observable<void> {
-    return this.http.put<void>('http://192.168.0.157:8000/library', { game }).pipe(
+    return this.http.put<void>('http://localhost:8000/library', { game }).pipe(
       catchError(this.handleError)
     );
   }
 
   removeGame(gameId: string): Observable<void> {
-    return this.http.delete<void>(`http://192.168.0.157:8000/library/${gameId}`).pipe(
+    return this.http.delete<void>(`http://localhost:8000/library/${gameId}`).pipe(
       catchError(this.handleError)
     );
   }
 
   searchGame(query: string): Observable<Game[]> {
-    return this.http.post<Game[]>('http://192.168.0.157:8000/library', { query }).pipe(
+    return this.http.post<Game[]>('http://localhost:8000/library', { query }).pipe(
       catchError(this.handleError)
     );
   }
 
   getLibrary(): Observable<LibraryItem[]> {
-    return this.http.get<LibraryItem[]>('http://192.168.0.157:8000/library').pipe(
+    return this.http.get<LibraryItem[]>('http://localhost:8000/library').pipe(
       catchError(this.handleError)
     );
   }

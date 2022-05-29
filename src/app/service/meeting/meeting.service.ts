@@ -14,7 +14,7 @@ export class MeetingService {
   ) { }
 
   getMeetings(): Observable<MeetingItem[]> {
-    return this.http.post<MeetingItem[]>('http://192.168.0.157:8000/meeting', {}).pipe(
+    return this.http.post<MeetingItem[]>('http://localhost:8000/meeting', {}).pipe(
       catchError(this.handleError)
     );
   }
