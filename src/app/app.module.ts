@@ -6,6 +6,7 @@ import { ButtonModule } from 'primeng/button';
 import { CalendarModule } from 'primeng/calendar';
 import { CardModule } from 'primeng/card';
 import { CheckboxModule } from 'primeng/checkbox';
+import { DialogModule } from 'primeng/dialog';
 import { DividerModule } from 'primeng/divider';
 import { MenubarModule } from 'primeng/menubar';
 import { ToolbarModule } from 'primeng/toolbar';
@@ -27,6 +28,8 @@ import { MeetingListComponent } from './meeting/meeting-list/meeting-list.compon
 import { MeetingListItemComponent } from './meeting/meeting-list/meeting-list-item/meeting-list-item.component';
 import { MeetingDetailsComponent } from './meeting/meeting-details/meeting-details.component';
 import { AuthInterceptor } from './auth-interceptor';
+import { LibraryListComponent } from './library-list/library-list.component';
+import { LibraryListItemComponent } from './library-list/library-list-item/library-list-item.component';
 
 @NgModule({
   declarations: [
@@ -37,6 +40,8 @@ import { AuthInterceptor } from './auth-interceptor';
     MeetingListComponent,
     MeetingListItemComponent,
     MeetingDetailsComponent,
+    LibraryListComponent,
+    LibraryListItemComponent,
   ],
   imports: [
     AppRoutingModule,
@@ -48,6 +53,7 @@ import { AuthInterceptor } from './auth-interceptor';
     CalendarModule,
     CardModule,
     CheckboxModule,
+    DialogModule,
     DividerModule,
     InputTextModule,
     MenubarModule,

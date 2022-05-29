@@ -1,7 +1,7 @@
 export interface Game {
+  id: string;
   title: string;
   thumbnail: string;
-  description?: string;
   minPlayers?: number;
   maxPlayers?: number;
   playingTime?: number;

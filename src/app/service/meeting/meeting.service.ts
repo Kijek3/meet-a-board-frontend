@@ -35,6 +35,7 @@ export class MeetingService {
       maxPlayers: faker.datatype.number({ min: 4, max: 6 }),
       description: faker.commerce.productDescription(),
       game: {
+        id: '1',
         title: faker.commerce.product(),
         thumbnail: faker.image.image(150, 150, true),
       },
