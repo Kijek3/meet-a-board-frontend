@@ -2,18 +2,18 @@
   <div class="col-12 lg:col-8">
     <div class="col-12 container border-round">
       <h2 class="text-center">🎲 Poszukaj swojej następnej przygody...</h2>
-      <ng-container *ngFor="let meeting of meetingList">
+      <ng-container *ngFor="let meeting of meetingList; index as i">
         <app-meeting-list-item [meetingItem]="meeting"></app-meeting-list-item>
-        <p-divider></p-divider>
+        <p-divider *ngIf="i + 1 !== meetingList.length"></p-divider>
       </ng-container>
     </div>
   </div>
   <div class="col-12 lg:col-4">
     <div class="col-12 container border-round">
       <h2 class="text-center">Następne spotkania</h2>
-      <ng-container *ngFor="let meeting of meetingList">
+      <ng-container *ngFor="let meeting of meetingList; index as i">
         <app-meeting-list-item [meetingItem]="meeting"></app-meeting-list-item>
-        <p-divider></p-divider>
+        <p-divider *ngIf="i + 1 !== meetingList.length"></p-divider>
       </ng-container>
     </div>
   </div>
