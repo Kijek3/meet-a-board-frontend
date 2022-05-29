@@ -10,8 +10,14 @@ body {
   color: var(--text-color)
 }
 
-.p-menubar-end {
-  width: 40%;
+.p-menubar-start {
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.p-submenu-list {
+  right: 2px;
 }
 
 a {
