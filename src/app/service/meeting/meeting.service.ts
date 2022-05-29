@@ -14,14 +14,14 @@ export class MeetingService {
   ) { }
 
   getMeetings(): Observable<MeetingItem[]> {
-    return this.http.get<MeetingItem[]>('http://localhost:8000/meeting').pipe(
+    return this.http.post<MeetingItem[]>('http://localhost:8000/meeting', {}).pipe(
       catchError(this.handleError)
     );
   }
 
   getMeeting(id: string): Observable<MeetingItem> {
     const meetingMock: MeetingItem = {
-      id,
+      _id: id,
       userId: faker.random.numeric(),
       guests: [],
       title: faker.music.songName(),
