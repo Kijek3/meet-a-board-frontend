@@ -2,7 +2,7 @@ import { Game, GameLanguage } from './game.model';
 import { User } from './user.model';
 
 export interface MeetingItem {
-  id: string;
+  _id: string;
   userId: string;
   guests: User[];
   title: string;

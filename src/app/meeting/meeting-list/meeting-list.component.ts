@@ -22,13 +22,13 @@ export class MeetingListComponent implements OnInit {
   ngOnInit(): void {
     for (let i = 1; i <= 10; i++) {
       const meetingMock: MeetingItem = {
-        id: i.toString(),
+        _id: i.toString(),
         userId: faker.random.numeric(),
         guests: [],
         title: faker.music.songName(),
         date: faker.date.future().toString(),
-        startHour: faker.date.between('2020-01-01T12:00:00.000Z', '2020-01-01T16:00:00.000Z').toLocaleTimeString('pl'),
-        endHour: faker.date.between('2020-01-01T18:00:00.000Z', '2020-01-01T22:00:00.000Z').toLocaleTimeString('pl'),
+        startHour: faker.date.between('2020-01-01T12:00:00.000Z', '2020-01-01T16:00:00.000Z').toLocaleTimeString('pl', { hour: '2-digit', minute: '2-digit' }),
+        endHour: faker.date.between('2020-01-01T18:00:00.000Z', '2020-01-01T22:00:00.000Z').toLocaleTimeString('pl', { hour: '2-digit', minute: '2-digit' }),
         city: faker.address.cityName(),
         address: faker.address.streetAddress(),
         isInPublicPlace: faker.datatype.boolean(),
@@ -37,7 +37,7 @@ export class MeetingListComponent implements OnInit {
         description: faker.commerce.productDescription(),
         game: {
           title: faker.commerce.product(),
-          thumbnail: faker.image.image(150, 150, true),
+          thumbnail: faker.image.cats(150, 150, true),
         },
       };
       this.mockListFaker.push(meetingMock);
