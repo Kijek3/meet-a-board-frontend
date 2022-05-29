@@ -22,6 +22,7 @@ export class AppComponent implements OnInit {
     {
       label: 'Biblioteka',
       icon: 'pi pi-book',
+      routerLink: '/library',
     },
     {
       label: 'Profil',

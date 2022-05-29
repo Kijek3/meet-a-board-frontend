@@ -1,0 +1,7 @@
+<a [href]="'https://boardgamegeek.com/boardgame/' + game.id" target="_blank">
+  <div class="col-12 container p-5 border-round text-center h-full relative">
+    <img [src]="game.thumbnail ? game.thumbnail : '../../assets/logo.png'" alt="Zdjęcie gry" width="150" height="150" class="border-round">
+    <h3 class="text-overflow-ellipsis">{{game.title}}</h3>
+    <button pButton pRipple type="button" icon="pi pi-times" class="p-button-rounded p-button-text p-button-danger absolute top-0 right-0" (click)="removeGame($event)"></button>
+  </div>
+</a>

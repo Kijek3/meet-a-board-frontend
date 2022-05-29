@@ -1,0 +1,22 @@
+:host(app-library-list) {
+  width: 100%;
+}
+
+.container {
+  background-color: var(--surface-card);
+  border: 2px solid var(--surface-border);
+  cursor: pointer;
+
+  &:hover {
+    background-color: var(--surface-hover);
+  }
+}
+
+.container-alt {
+  background-color: var(--surface-card);
+  cursor: pointer;
+
+  &:hover {
+    background-color: var(--surface-hover);
+  }
+}

@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { LibraryListComponent } from './library-list/library-list.component';
 import { LoginFormComponent } from './login-form/login-form.component';
 import { MeetingDetailsComponent } from './meeting/meeting-details/meeting-details.component';
 import { MeetingListComponent } from './meeting/meeting-list/meeting-list.component';
@@ -13,6 +14,7 @@ const routes: Routes = [
   { path: 'settings', component: UserSettingsComponent },
   { path: 'meetings', component: MeetingListComponent },
   { path: 'meetings/:id', component: MeetingDetailsComponent },
+  { path: 'library', component: LibraryListComponent },
 ];
 
 @NgModule({
