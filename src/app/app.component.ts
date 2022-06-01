@@ -52,6 +52,28 @@ export class AppComponent implements OnInit {
     },
   ];
 
+  translation = {
+    'accept': 'Tak',
+    'reject': 'Nie',
+    'choose': 'Wybierz',
+    'upload': 'Wyślij',
+    'cancel': 'Anuluj',
+    'dayNames': ['Niedziela', 'Poniedziałek', 'Wtorek', 'Środa', 'Czwartek', 'Piątek', 'Sobota'],
+    'dayNamesShort': ['niedz.', 'pon.', 'wt.', 'śr.', 'czw.', 'pt.', 'sob.'],
+    'dayNamesMin': ['niedz.', 'pon.', 'wt.', 'śr.', 'czw.', 'pt.', 'sob.'],
+    'monthNames': ['Styczeń', 'Luty', 'Marzec', 'Kwiecień', 'Maj', 'Czerwiec', 'Lipiec', 'Sierpień', 'Wrzesień', 'Październik', 'Listopad', 'Grudzień'],
+    'monthNamesShort': ['STY', 'LUT', 'MAR', 'KWI', 'MAJ', 'CZE', 'LIP', 'SIE', 'WRZ', 'PAŹ', 'LIS', 'GRU'],
+    'today': 'Dziś',
+    'clear': 'Wyczyść',
+    'weekHeader': 'tydz.',
+    'firstDayOfWeek': 0,
+    'dateFormat': 'dd/mm/yy',
+    'weak': 'Słaby',
+    'medium': 'Umiarkowany',
+    'strong': 'Silny',
+    'passwordPrompt': 'Podaj hasło',
+  };
+
   constructor(
     private authService: AuthService,
     private changeThemeService: ChangeThemeService,
@@ -64,6 +86,7 @@ export class AppComponent implements OnInit {
 
   ngOnInit(): void {
     this.primengConfig.ripple = true;
+    this.primengConfig.setTranslation(this.translation);
     this.authService.checkToken();
     this.authService.userLoggedIn.subscribe((value) => {
       this.userLogged = value;
