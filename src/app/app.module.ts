@@ -17,12 +17,15 @@ import { InputTextModule } from 'primeng/inputtext';
 import { PasswordModule } from 'primeng/password';
 import { ProgressSpinnerModule } from 'primeng/progressspinner';
 import { TieredMenuModule } from 'primeng/tieredmenu';
+import { DropdownModule } from 'primeng/dropdown';
+import { InputTextareaModule } from 'primeng/inputtextarea';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginFormComponent } from './login-form/login-form.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RegisterFormComponent } from './register-form/register-form.component';
+import { EventFormComponent } from './event-form/event-form.component';
 import { UserSettingsComponent } from './user-settings/user-settings.component';
 import { MeetingListComponent } from './meeting/meeting-list/meeting-list.component';
 import { MeetingListItemComponent } from './meeting/meeting-list/meeting-list-item/meeting-list-item.component';
@@ -36,6 +39,7 @@ import { LibraryListItemComponent } from './library-list/library-list-item/libra
     AppComponent,
     LoginFormComponent,
     RegisterFormComponent,
+    EventFormComponent,
     UserSettingsComponent,
     MeetingListComponent,
     MeetingListItemComponent,
@@ -65,6 +69,8 @@ import { LibraryListItemComponent } from './library-list/library-list-item/libra
     PasswordModule,
     ProgressSpinnerModule,
     FormsModule,
+    DropdownModule,
+    InputTextareaModule,
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
@@ -72,3 +78,5 @@ import { LibraryListItemComponent } from './library-list/library-list-item/libra
   bootstrap: [AppComponent],
 })
 export class AppModule { }
+
+

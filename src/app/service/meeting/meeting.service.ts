@@ -24,6 +24,12 @@ export class MeetingService {
       catchError(this.handleError)
     );
   }
+  
+  addMeeting(meetingItem: MeetingItem): Observable<MeetingItem> {
+    return this.http.put<MeetingItem>('http://localhost:8000/meeting', meetingItem).pipe(
+      catchError(this.handleError)
+    );
+  }
 
   getMeeting(id: string): Observable<MeetingItem> {
     // const meetingMock: MeetingItem = {
