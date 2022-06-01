@@ -1,12 +1,12 @@
 <div class="grid">
-  <div class="col-12 lg:col-2">
+  <div class="col-12 md:col-6 lg:col-4 xl:col-2">
     <div class="col-12 container p-5 border-round h-full flex flex-column justify-content-center align-items-center" (click)="openSearch()">
       <i class="pi pi-plus text-4xl"></i>
       <p>Dodaj nową grę</p>
     </div>
   </div>
   <ng-container *ngFor="let libraryItem of library">
-    <app-library-list-item [game]="libraryItem.game" (refreshLibrary)="getLibrary()" class="col-12 lg:col-2"></app-library-list-item>
+    <app-library-list-item [game]="libraryItem.game" (refreshLibrary)="getLibrary()" class="col-12 md:col-6 lg:col-4 xl:col-2"></app-library-list-item>
   </ng-container>
 </div>
 
