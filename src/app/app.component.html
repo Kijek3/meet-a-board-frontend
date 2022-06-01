@@ -11,9 +11,9 @@
 </p-menubar>
 
 <p-toast position="top-center"></p-toast>
-<div class="flex justify-content-center align-items-center">
-  <div *ngIf="!userLogged" class="flex flex-column align-items-center mr-8 ml-8">
-    <img src="../assets/big_logo.png" width="512"/>
+<div class="flex justify-content-center align-items-center flex-column lg:flex-row">
+  <div *ngIf="!userLogged" class="flex flex-column align-items-center mr-8 ml-8 mb-5">
+    <img src="../assets/big_logo.png" class="w-full"/>
     <p-button label="Zarejestruj się" icon="pi pi-user-plus" class="w-full" styleClass="w-full" routerLink="/register"></p-button>
     <p-button label="Zaloguj się" icon="pi pi-user" class="w-full mt-4" styleClass="w-full" routerLink="/login"></p-button>
   </div>
