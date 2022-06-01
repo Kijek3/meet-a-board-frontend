@@ -12,6 +12,7 @@ import { faker } from '@faker-js/faker';
 export class MeetingListComponent implements OnInit {
   loading = true;
   meetingList: MeetingItem[];
+  userMeetingList: MeetingItem[];
   mockListFaker: MeetingItem[] = [];
 
   constructor(
@@ -44,12 +45,35 @@ export class MeetingListComponent implements OnInit {
       this.mockListFaker.push(meetingMock);
     }
     this.getMeetings();
+    this.getUserMeetings();
   }
 
   private getMeetings(): void {
+    this.loading = true;
     this.meetingService.getMeetings().subscribe({
       next: (meetings: MeetingItem[]) => {
         this.meetingList = meetings;
+        this.loading = false;
+      },
+      error: (error: Error) => {
+        this.loading = false;
+        this.meetingList = this.mockListFaker;
+        this.messageService.add(
+          {
+            severity: 'error',
+            summary: 'Błąd',
+            detail: error.message,
+          }
+        );
+      },
+    });
+  }
+
+  private getUserMeetings(): void {
+    this.loading = true;
+    this.meetingService.getUserMeetings().subscribe({
+      next: (meetings: MeetingItem[]) => {
+        this.userMeetingList = meetings;
         this.loading = false;
       },
       error: (error: Error) => {

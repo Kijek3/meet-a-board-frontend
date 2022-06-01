@@ -10,10 +10,17 @@
   </div>
   <div class="col-12 lg:col-4">
     <div class="col-12 container border-round">
-      <h2 class="text-center">Następne spotkania</h2>
-      <ng-container *ngFor="let meeting of meetingList; index as i">
+      <h2 class="text-center">Utworzone spotkania</h2>
+      <ng-container *ngFor="let meeting of userMeetingList; index as i">
         <app-meeting-list-item [meetingItem]="meeting"></app-meeting-list-item>
-        <p-divider *ngIf="i + 1 !== meetingList.length"></p-divider>
+        <p-divider *ngIf="i + 1 !== userMeetingList.length"></p-divider>
+      </ng-container>
+    </div>
+    <div class="col-12 container border-round mt-3">
+      <h2 class="text-center">Następne spotkania</h2>
+      <ng-container *ngFor="let meeting of userMeetingList; index as i">
+        <app-meeting-list-item [meetingItem]="meeting"></app-meeting-list-item>
+        <p-divider *ngIf="i + 1 !== userMeetingList.length"></p-divider>
       </ng-container>
     </div>
   </div>

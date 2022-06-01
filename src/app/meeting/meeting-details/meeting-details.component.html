@@ -4,8 +4,9 @@
       <h2>{{meetingItem.title}}</h2>
       <p>{{meetingItem.description}}</p>
     </div>
-    <div class="col-12 mt-3 container border-round">
-      <p>tekst 3</p>
+    <div class="col-12 mt-3 container border-round flex flex-row">
+      <img [src]="meetingItem.game.thumbnail" alt="{{meetingItem.game.title}}" class="border-round">
+      <h3>{{meetingItem.game.title}}</h3>
     </div>
   </div>
   <div class="col-12 lg:col-3">
