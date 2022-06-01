@@ -1,0 +1,63 @@
+<div class="card ui-fluid p-formgrid p-grid">
+    <form [formGroup]="eventForm" (ngSubmit)="onAddEvent()">
+      <div class="flex direction-row">
+        <div class="p-inputgroup col-12">
+          <span class="p-inputgroup-addon">
+            <i class="pi pi-pencil"></i>
+          </span>
+          <input type="text" pInputText formControlName="title" ngModel maxlength="100" placeholder="Nazwa wydarzenia">
+        </div>
+      </div>
+      <div class="p-inputgroup col-12">
+        <span class="p-inputgroup-addon">
+          <i class="pi pi-calendar"></i>
+        </span>
+        <p-calendar [showIcon]="false" formControlName="date" placeholder="Data wydarzenia"></p-calendar>
+      </div>
+      <div class="p-inputgroup col-12">
+        <span class="p-inputgroup-addon">
+          <i class="pi pi-clock"></i>
+        </span>
+        <p-calendar [showIcon]="false" [timeOnly]="true" formControlName="startHour" placeholder="Godzina rozpoczęcia"></p-calendar>
+        <p-calendar [showIcon]="false" [timeOnly]="true" formControlName="endHour" placeholder="Godzina zakończenia"></p-calendar>
+      </div>
+      <div class="p-inputgroup col-12">
+        <span class="p-inputgroup-addon">
+          <i class="pi pi-map-marker"></i>
+        </span>
+        <input type="text" pInputText formControlName="city" ngModel maxlength="40" placeholder="Miasto">
+        <input type="text" pInputText formControlName="address" ngModel maxlength="100" placeholder="Adres">
+      </div>
+      <div class="p-inputgroup col-12">
+      </div>
+      <div class="field-checkbox">
+        <p-checkbox formControlName="isInPublicPlace" name="miejsce-publiczne" inputId="public" value="Miejsce publiczne" [binary]="true"></p-checkbox>
+        <label for="public">Miejsce publiczne</label>
+      </div>
+      <div class="p-inputgroup col-12">
+        <span class="p-inputgroup-addon">
+          <i class="pi pi-times-circle"></i>
+        </span>
+        <input type="text" pInputText formControlName="game" placeholder="Nazwa gry">
+      </div>
+      <div class="p-inputgroup col-12">
+        <span class="p-inputgroup-addon">
+          <i class="pi pi-info-circle"></i>
+        </span>
+        <textarea pInputTextarea [rows]="5" [cols]="30" [autoResize]="true" formControlName="description" ngModel maxlength="2000" placeholder="Opis wydarzenia"></textarea>
+      </div>
+      <div class="p-inputgroup col-12">
+        <span class="p-inputgroup-addon">
+          <i class="pi pi-flag"></i>
+        </span>
+        <p-dropdown class="col-12" [options]="languages" formControlName="gameLanguage" optionValue="name" optionLabel="name" placeholder="Język gry"></p-dropdown>
+      </div>
+      <div class="col-12">
+        <p-button type="submit" label="Dodaj ogłoszenie" icon="pi pi-plus" [disabled]="eventForm.valid"></p-button>
+      </div>
+    </form>
+  </div>
+  
+  <div *ngIf="loading" class="p-component-overlay flex justify-content-center align-items-center">
+    <p-progressSpinner strokeWidth="5"></p-progressSpinner>
+  </div>

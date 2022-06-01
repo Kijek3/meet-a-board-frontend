@@ -18,6 +18,7 @@ export class AppComponent implements OnInit {
     {
       label: 'Dodaj',
       icon: 'pi pi-plus',
+      routerLink: '/meetings/new',
     },
     {
       label: 'Biblioteka',
