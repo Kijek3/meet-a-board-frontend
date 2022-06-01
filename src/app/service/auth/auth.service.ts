@@ -14,6 +14,14 @@ import { Router } from '@angular/router';
 export class AuthService {
   userLoggedIn = new BehaviorSubject<boolean>(false);
 
+  private _token: string;
+  get token() {
+    return this._token;
+  }
+  set token(value: string) {
+    this._token = value;
+  }
+
   constructor(
     private http: HttpClient,
     private router: Router,
@@ -31,6 +39,7 @@ export class AuthService {
   }
 
   private setToken(token: string, remember: boolean): void {
+    this.token = token;
     remember ? localStorage.setItem('token', token) : sessionStorage.setItem('token', token);
   }
 
@@ -67,6 +76,7 @@ export class AuthService {
       return;
     }
 
+    this.token = token;
     const tokenDecoded = jwtDecode(token) as TokenInfo;
     const currentTime = Math.floor(Date.now() / 1000);
     this.userLoggedIn.next(tokenDecoded.exp > currentTime);

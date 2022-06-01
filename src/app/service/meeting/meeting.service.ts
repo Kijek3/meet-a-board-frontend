@@ -14,7 +14,7 @@ export class MeetingService {
   ) { }
 
   getMeetings(): Observable<MeetingItem[]> {
-    return this.http.get<MeetingItem[]>('http://localhost:8000/meeting').pipe(
+    return this.http.post<MeetingItem[]>('http://localhost:8000/meeting', {}).pipe(
       catchError(this.handleError)
     );
   }
@@ -27,7 +27,7 @@ export class MeetingService {
 
   getMeeting(id: string): Observable<MeetingItem> {
     const meetingMock: MeetingItem = {
-      id,
+      _id: id,
       userId: faker.random.numeric(),
       guests: [],
       title: faker.music.songName(),
@@ -41,6 +41,7 @@ export class MeetingService {
       maxPlayers: faker.datatype.number({ min: 4, max: 6 }),
       description: faker.commerce.productDescription(),
       game: {
+        id: '1',
         title: faker.commerce.product(),
         thumbnail: faker.image.image(150, 150, true),
       },

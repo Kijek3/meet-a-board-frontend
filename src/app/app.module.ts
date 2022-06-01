@@ -1,11 +1,12 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { ButtonModule } from 'primeng/button';
 import { CalendarModule } from 'primeng/calendar';
 import { CardModule } from 'primeng/card';
 import { CheckboxModule } from 'primeng/checkbox';
+import { DialogModule } from 'primeng/dialog';
 import { DividerModule } from 'primeng/divider';
 import { MenubarModule } from 'primeng/menubar';
 import { ToolbarModule } from 'primeng/toolbar';
@@ -29,6 +30,9 @@ import { UserSettingsComponent } from './user-settings/user-settings.component';
 import { MeetingListComponent } from './meeting/meeting-list/meeting-list.component';
 import { MeetingListItemComponent } from './meeting/meeting-list/meeting-list-item/meeting-list-item.component';
 import { MeetingDetailsComponent } from './meeting/meeting-details/meeting-details.component';
+import { AuthInterceptor } from './auth-interceptor';
+import { LibraryListComponent } from './library-list/library-list.component';
+import { LibraryListItemComponent } from './library-list/library-list-item/library-list-item.component';
 
 @NgModule({
   declarations: [
@@ -40,6 +44,8 @@ import { MeetingDetailsComponent } from './meeting/meeting-details/meeting-detai
     MeetingListComponent,
     MeetingListItemComponent,
     MeetingDetailsComponent,
+    LibraryListComponent,
+    LibraryListItemComponent,
   ],
   imports: [
     AppRoutingModule,
@@ -51,6 +57,7 @@ import { MeetingDetailsComponent } from './meeting/meeting-details/meeting-detai
     CalendarModule,
     CardModule,
     CheckboxModule,
+    DialogModule,
     DividerModule,
     InputTextModule,
     MenubarModule,
@@ -65,7 +72,9 @@ import { MeetingDetailsComponent } from './meeting/meeting-details/meeting-detai
     DropdownModule,
     InputTextareaModule,
   ],
-  providers: [],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule { }
