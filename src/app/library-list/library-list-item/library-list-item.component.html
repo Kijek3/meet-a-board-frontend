@@ -1,7 +1,19 @@
 <a [href]="'https://boardgamegeek.com/boardgame/' + game.id" target="_blank">
-  <div class="col-12 container p-5 border-round text-center h-full relative">
+  <div class="col-12 flex flex-column align-items-center container p-5 border-round text-center h-full relative">
     <img [src]="game.thumbnail ? game.thumbnail : '../../assets/logo.png'" alt="Zdjęcie gry" width="150" height="150" class="border-round">
-    <h3 class="text-overflow-ellipsis">{{game.title}}</h3>
+    <div class="flex flex-column align-items-center h-full">
+      <h3>{{game.title}}</h3>
+      <div class="flex align-items-end justify-content-end h-full">
+        <ng-container *ngIf="game.minPlayers && game.maxPlayers">
+          <i class="pi pi-users mr-2"></i>
+          <p class="m-0">{{game.minPlayers}}-{{game.maxPlayers}}</p>
+        </ng-container>
+        <ng-container *ngIf="game.playingTime">
+          <i class="pi pi-clock mr-2 ml-4"></i>
+          <p class="m-0">{{game.playingTime}} min</p>
+        </ng-container>
+      </div>
+    </div>
     <button pButton pRipple type="button" icon="pi pi-times" class="p-button-rounded p-button-text p-button-danger absolute top-0 right-0" (click)="removeGame($event)"></button>
   </div>
 </a>

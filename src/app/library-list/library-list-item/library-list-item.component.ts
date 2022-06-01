@@ -21,7 +21,7 @@ export class LibraryListItemComponent {
     event.preventDefault();
     this.libraryService.removeGame(this.game.id).subscribe(() => {
       this.messageService.add({
-        severity: 'success',
+        severity: 'info',
         summary: 'Usunięto grę z biblioteki',
         detail: `${this.game.title} zostało usunięte z biblioteki gier`,
       });
