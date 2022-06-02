@@ -7,6 +7,7 @@ import { MeetingListComponent } from './meeting/meeting-list/meeting-list.compon
 import { RegisterFormComponent } from './register-form/register-form.component';
 import { UserSettingsComponent } from './user-settings/user-settings.component';
 import { EventFormComponent } from './event-form/event-form.component';
+import { MeetingSearchComponent } from './meeting/meeting-search/meeting-search.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/meetings', pathMatch: 'full' },
@@ -15,6 +16,7 @@ const routes: Routes = [
   { path: 'settings', component: UserSettingsComponent },
   { path: 'meetings', component: MeetingListComponent },
   { path: 'meetings/new', component: EventFormComponent },
+  { path: 'meetings/search', component: MeetingSearchComponent },
   { path: 'meetings/:id', component: MeetingDetailsComponent },
   { path: 'library', component: LibraryListComponent },
 ];
