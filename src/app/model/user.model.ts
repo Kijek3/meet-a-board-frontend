@@ -1,7 +1,13 @@
 export interface User {
-  id: string;
-  firstName: string;
-  lastName: string;
-  dob: string;
-  city: string;
+  userId: string;
+  isAccepted: boolean;
+}
+
+export interface UserInfo {
+  user?: User,
+  firstName: string,
+  lastName: string,
+  city: string,
+  dob: string,
+  description: string,
 }

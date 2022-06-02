@@ -34,13 +34,39 @@
     </div>
   </div>
   <div class="col-12 lg:col-3">
-    <div class="col-12 container border-round">
-      <p>tekst 2</p>
-      <p>tekst 2</p>
-      <p>tekst 2</p>
-      <p>tekst 2</p>
-      <p>tekst 2</p>
-      <p>tekst 2</p>
+    <div *ngIf="!isOwner && !isAcceptedGuest" class="col-12">
+      <button pButton type="button" label="Dołącz do spotkania" icon="pi pi-check" iconPos="left" class="col-12" (click)="joinMeeting()"></button>
+    </div>
+    <div *ngIf="isOwner && !isAcceptedGuest" class="col-12">
+      <button pButton type="button" label="Usuń spotkanie" icon="pi pi-trash" iconPos="left" class="p-button-danger col-12" (click)="removeMeeting()"></button>
+    </div>
+    <div *ngIf="isOwner || isAcceptedGuest" class="col-12 border-round">
+      <ng-container *ngFor="let guest of guests">
+        <div class="grid">
+          <div class="col-12 flex align-items-center">
+            <p-avatar icon="pi pi-user" class="mr-2"></p-avatar>
+            <div class="flex w-12">
+              <p>{{guest.firstName}} {{guest.lastName}}</p>
+            </div>
+            <div class="flex w-12 justify-content-end">
+              <p class="opacity-70">{{guest.user.isAccepted ? 'Gość zaakceptowany' : null}}</p>
+            </div>
+          </div>
+          <ng-container *ngIf="isOwner && !guest.user.isAccepted">
+            <div class="col-6 flex justify-content-center">
+              <button pButton type="button" label="Zaakceptuj" icon="pi pi-check" iconPos="left" class="col-12" (click)="acceptGuest(guest)"></button>
+            </div>
+            <div class="col-6 flex">
+              <button pButton type="button" label="Odrzuć" icon="pi pi-times" iconPos="left" class="p-button-danger col-12" (click)="declineGuest(guest)"></button>
+            </div>
+          </ng-container>
+          <ng-container *ngIf="isOwner && guest.user.isAccepted">
+            <div class="col-12 flex">
+              <button pButton type="button" label="Odrzuć" icon="pi pi-times" iconPos="left" class="p-button-danger col-12" (click)="declineGuest(guest)"></button>
+            </div>
+          </ng-container>
+        </div>
+      </ng-container>
     </div>
   </div>
 </div>

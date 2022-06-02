@@ -7,6 +7,7 @@ import { catchError, map } from 'rxjs/operators';
 import jwtDecode from 'jwt-decode';
 import { TokenInfo } from 'src/app/model/token.model';
 import { Router } from '@angular/router';
+import { UserInfo } from 'src/app/model/user.model';
 
 @Injectable({
   providedIn: 'root',
@@ -20,6 +21,14 @@ export class AuthService {
   }
   set token(value: string) {
     this._token = value;
+  }
+
+  private _userId: string;
+  get userId() {
+    return this._userId;
+  }
+  set userId(value: string) {
+    this._userId = value;
   }
 
   constructor(
@@ -54,6 +63,7 @@ export class AuthService {
     ).pipe(
       map(result => {
         this.setToken(result.token, args.remember);
+        this.userId = result.userId;
         this.logUser();
       })
     );
@@ -65,8 +75,15 @@ export class AuthService {
     ).pipe(
       map(result => {
         this.setToken(result.token, false);
+        this.userId = result.userId;
         this.logUser();
       })
+    );
+  }
+
+  getUserInfo(id: string): Observable<UserInfo> {
+    return this.http.get<UserInfo>(`http://localhost:8000/user/${id}`).pipe(
+      catchError(this.handleError)
     );
   }
 
@@ -78,6 +95,7 @@ export class AuthService {
 
     this.token = token;
     const tokenDecoded = jwtDecode(token) as TokenInfo;
+    this.userId = tokenDecoded.user_id;
     const currentTime = Math.floor(Date.now() / 1000);
     this.userLoggedIn.next(tokenDecoded.exp > currentTime);
   }

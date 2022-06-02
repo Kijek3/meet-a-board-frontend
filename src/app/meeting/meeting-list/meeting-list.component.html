@@ -18,9 +18,9 @@
     </div>
     <div class="col-12 container border-round mt-3">
       <h2 class="text-center">Następne spotkania</h2>
-      <ng-container *ngFor="let meeting of userMeetingList; index as i">
+      <ng-container *ngFor="let meeting of joinedMeetingList; index as i">
         <app-meeting-list-item [meetingItem]="meeting"></app-meeting-list-item>
-        <p-divider *ngIf="i + 1 !== userMeetingList.length"></p-divider>
+        <p-divider *ngIf="i + 1 !== joinedMeetingList.length"></p-divider>
       </ng-container>
     </div>
   </div>

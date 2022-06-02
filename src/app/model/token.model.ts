@@ -1,5 +1,5 @@
 export interface TokenInfo {
-  userId: string;
+  user_id: string;
   exp: number;
   it: number;
   email: string;

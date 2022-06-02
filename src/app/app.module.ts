@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { AvatarModule } from 'primeng/avatar';
 import { ButtonModule } from 'primeng/button';
 import { CalendarModule } from 'primeng/calendar';
 import { CardModule } from 'primeng/card';
@@ -53,6 +54,7 @@ import { LibraryListItemComponent } from './library-list/library-list-item/libra
     BrowserAnimationsModule,
     HttpClientModule,
     ReactiveFormsModule,
+    AvatarModule,
     ButtonModule,
     CalendarModule,
     CardModule,
