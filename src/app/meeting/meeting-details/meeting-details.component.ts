@@ -16,6 +16,7 @@ export class MeetingDetailsComponent implements OnInit {
   isOwner = false;
   isAcceptedGuest = false;
   guests: UserInfo[] = [];
+  meetingDate: string;
 
   constructor(
     private route: ActivatedRoute,
@@ -89,8 +90,11 @@ export class MeetingDetailsComponent implements OnInit {
   private getMeeting(): void {
     this.meetingService.getMeeting(this.route.snapshot.paramMap.get('id')).subscribe((meeting: MeetingItem) => {
       this.meetingItem = meeting;
+      this.parseDate();
       this.checkAccess();
-      this.getGuestInfo();
+      if (this.isOwner || this.isAcceptedGuest) {
+        this.getGuestInfo();
+      }
     });
   }
 
@@ -114,5 +118,13 @@ export class MeetingDetailsComponent implements OnInit {
         });
       });
     });
+  }
+
+  private parseDate(): void {
+    this.meetingDate = new Date(this.meetingItem.date).toLocaleDateString('pl', { day: 'numeric', month: 'long' });
+  }
+
+  openGame(s: string) {
+    window.location.href=(`https://gameboardgeek.com/boardgame/${s}`);
   }
 }
