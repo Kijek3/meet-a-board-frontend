@@ -14,6 +14,7 @@ import { ToolbarModule } from 'primeng/toolbar';
 import { MessagesModule } from 'primeng/messages';
 import { MessageModule } from 'primeng/message';
 import { ToastModule } from 'primeng/toast';
+import { InputNumberModule } from 'primeng/inputnumber';
 import { InputTextModule } from 'primeng/inputtext';
 import { PasswordModule } from 'primeng/password';
 import { ProgressSpinnerModule } from 'primeng/progressspinner';
@@ -34,6 +35,7 @@ import { MeetingDetailsComponent } from './meeting/meeting-details/meeting-detai
 import { AuthInterceptor } from './auth-interceptor';
 import { LibraryListComponent } from './library-list/library-list.component';
 import { LibraryListItemComponent } from './library-list/library-list-item/library-list-item.component';
+import { MeetingSearchComponent } from './meeting/meeting-search/meeting-search.component';
 
 @NgModule({
   declarations: [
@@ -47,6 +49,7 @@ import { LibraryListItemComponent } from './library-list/library-list-item/libra
     MeetingDetailsComponent,
     LibraryListComponent,
     LibraryListItemComponent,
+    MeetingSearchComponent,
   ],
   imports: [
     AppRoutingModule,
@@ -61,6 +64,7 @@ import { LibraryListItemComponent } from './library-list/library-list-item/libra
     CheckboxModule,
     DialogModule,
     DividerModule,
+    InputNumberModule,
     InputTextModule,
     MenubarModule,
     ToolbarModule,

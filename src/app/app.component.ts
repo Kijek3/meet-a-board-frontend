@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { MenuItem, MessageService, PrimeNGConfig } from 'primeng/api';
 import { AuthService } from './service/auth/auth.service';
 import { ChangeThemeService } from './service/change-theme/change-theme.service';
+import { MeetingService } from './service/meeting/meeting.service';
 
 @Component({
   selector: 'app-root',
@@ -78,6 +79,7 @@ export class AppComponent implements OnInit {
     private authService: AuthService,
     private changeThemeService: ChangeThemeService,
     private messageService: MessageService,
+    private meetingService: MeetingService,
     private primengConfig: PrimeNGConfig,
     private router: Router,
   ) {
@@ -101,10 +103,12 @@ export class AppComponent implements OnInit {
     this.isLightTheme = !this.isLightTheme;
   }
 
-  onSearch(event: KeyboardEvent) {
-    if (event.key === 'Enter') {
-      console.log(this.searchValue);
-    }
+  onClick(): void {
+    this.router.navigateByUrl('/meetings/search');
+  }
+
+  onChange(): void {
+    this.meetingService.searchPhrase.emit(this.searchValue);
   }
 
   logout(): void {
