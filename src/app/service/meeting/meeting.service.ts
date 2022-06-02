@@ -1,12 +1,14 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { EventEmitter, Injectable } from '@angular/core';
 import { catchError, Observable, throwError } from 'rxjs';
 import { MeetingItem } from 'src/app/model/meeting.model';
+import { Filter, SortBy } from 'src/app/model/search.model';
 
 @Injectable({
   providedIn: 'root',
 })
 export class MeetingService {
+  searchPhrase = new EventEmitter<string>();
 
   constructor(
     private http: HttpClient,
@@ -14,6 +16,12 @@ export class MeetingService {
 
   getMeetings(): Observable<MeetingItem[]> {
     return this.http.post<MeetingItem[]>('http://localhost:8000/meeting', {}).pipe(
+      catchError(this.handleError)
+    );
+  }
+
+  searchMeetings(args: {filter: Filter, sortBy: SortBy}): Observable<MeetingItem[]> {
+    return this.http.post<MeetingItem[]>('http://localhost:8000/meeting', args).pipe(
       catchError(this.handleError)
     );
   }

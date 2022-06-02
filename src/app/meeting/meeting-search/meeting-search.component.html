@@ -1,0 +1,41 @@
+<div class="grid">
+  <div class="col-12 grid">
+    <form class="col-12 grid flex align-items-center" #searchForm="ngForm" (keyup.enter)="search()">
+      <div class="col-12 xl:col-2">
+        <p-calendar name="minDate" class="col-2" styleClass="col-12" (onSelect)="search()" (onClearClick)="search()" [(ngModel)]="minDate" [showButtonBar]="true" [showIcon]="true" [firstDayOfWeek]="1" placeholder="Data po..."></p-calendar>
+      </div>
+      <div class="col-12 xl:col-2">
+        <p-calendar name="minDate" class="col-2" styleClass="col-12" (onSelect)="search()" (onClearClick)="search()" [(ngModel)]="maxDate" [showButtonBar]="true" [showIcon]="true" [firstDayOfWeek]="1" placeholder="Data przed..."></p-calendar>
+      </div>
+      <div class="col-12 xl:col-2">
+        <p-inputNumber name="minPlayers" class="col-12" styleClass="col-12" [(ngModel)]="minPlayers" placeholder="Minimalna liczba graczy" [showButtons]="true" [min]="1" [max]="100"></p-inputNumber>
+      </div>
+      <div class="col-12 xl:col-2">
+        <p-inputNumber name="maxPlayers" class="col-12" styleClass="col-12" [(ngModel)]="maxPlayers" placeholder="Maksymalna liczba graczy" [showButtons]="true" [min]="1" [max]="100"></p-inputNumber>
+      </div>
+      <div class="col-12 xl:col-2">
+        <span class="p-input-icon-left w-12">
+          <i class="pi pi-map-marker"></i>
+          <input name="city" type="text" pInputText class="w-12" placeholder="Miasto" [(ngModel)]="city" (change)="search()"/>
+        </span>
+      </div>
+      <div class="col-12 xl:col-2">
+        <p-dropdown styleClass="w-full" [options]="sortOptions" name="sort" [(ngModel)]="sortChoice" optionLabel="name" placeholder="Sortuj po..." (onChange)="search()"></p-dropdown>
+      </div>
+    </form>
+  </div>
+  <div class="col-12">
+    <div class="col-12 container border-round" *ngIf="meetingList">
+      <div *ngIf="loading" class="p-component-overlay flex justify-content-center align-items-center z-5">
+        <p-progressSpinner strokeWidth="5"></p-progressSpinner>
+      </div>
+      <ng-container *ngFor="let meeting of meetingList; index as i">
+        <app-meeting-list-item [meetingItem]="meeting"></app-meeting-list-item>
+        <p-divider *ngIf="i + 1 !== meetingList.length"></p-divider>
+      </ng-container>
+      <div *ngIf="meetingList.length === 0" class="text-center">
+        <h3>Nie znaleziono ogłoszeń...</h3>
+      </div>
+    </div>
+  </div>
+</div>

@@ -5,7 +5,7 @@
     </a>
     <span class="p-input-icon-left w-12 ml-3 mr-3">
       <i class="pi pi-search"></i>
-      <input type="text" pInputText class="w-12" placeholder="Wyszukaj ogłoszenie" [(ngModel)]="searchValue" (keydown)="onSearch($event)"/>
+      <input type="text" pInputText class="w-12" placeholder="Wyszukaj ogłoszenie" [(ngModel)]="searchValue" (click)="onClick()" (input)="onChange()"/>
     </span>
   </ng-template>
 </p-menubar>
