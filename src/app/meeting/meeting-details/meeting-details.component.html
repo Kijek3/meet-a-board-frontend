@@ -3,10 +3,34 @@
     <div class="col-12 container border-round">
       <h2>{{meetingItem.title}}</h2>
       <p>{{meetingItem.description}}</p>
+      <span class="flex align-items-center">
+        <i class="pi pi-calendar mr-2"></i>
+        <p>{{meetingDate}}</p>
+      </span>
+      <span class="flex align-items-center">
+        <i class="pi pi-clock mr-2"></i>
+        <p>{{meetingItem.startHour}} - {{meetingItem.endHour}}</p>
+      </span>
+    </div>
+    <div class="col-12 mt-3 container border-round">
+      <div *ngIf="meetingItem.isInPublicPlace==true else elseBlock">
+        <h3>Bar planszówkowy</h3>
+      </div>
+      <ng-template #elseBlock>
+        <h3>Dom</h3>
+      </ng-template>
+        <div>
+          <p>Miasto: {{meetingItem.city}}</p>
+          <p>Adres: {{meetingItem.address}}</p>
+        </div>
     </div>
     <div class="col-12 mt-3 container border-round flex flex-row">
       <img [src]="meetingItem.game.thumbnail" alt="{{meetingItem.game.title}}" class="border-round">
-      <h3>{{meetingItem.game.title}}</h3>
+      <div style="margin-left:30px">
+        <h3><a [href]="'https://boardgamegeek.com/boardgame/' + meetingItem.game.id" target="_blank">{{meetingItem.game.title}}</a></h3>
+        <p>Liczba graczy: {{meetingItem.game.minPlayers}} - {{meetingItem.game.maxPlayers}}</p>
+        <p>Język gry: {{meetingItem.gameLanguage}}</p>
+      </div>
     </div>
   </div>
   <div class="col-12 lg:col-3">
