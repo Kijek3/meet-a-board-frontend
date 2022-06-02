@@ -36,8 +36,32 @@ export class MeetingService {
     );
   }
 
+  removeMeeting(id: string): Observable<MeetingItem> {
+    return this.http.delete<MeetingItem>(`http://localhost:8000/meeting/${id}`).pipe(
+      catchError(this.handleError)
+    );
+  }
+
   getMeeting(id: string): Observable<MeetingItem> {
     return this.http.get<MeetingItem>(`http://localhost:8000/meeting/${id}`).pipe(
+      catchError(this.handleError)
+    );
+  }
+
+  joinMeeting(id: string): Observable<void> {
+    return this.http.post<void>(`http://localhost:8000/meeting/${id}`, {}).pipe(
+      catchError(this.handleError)
+    );
+  }
+
+  acceptGuest(meetingId: string, userId: string): Observable<void> {
+    return this.http.patch<void>(`http://localhost:8000/meeting/${meetingId}/guests`, { userId }).pipe(
+      catchError(this.handleError)
+    );
+  }
+
+  declineGuest(meetingId: string, userId: string): Observable<void> {
+    return this.http.delete<void>(`http://localhost:8000/meeting/${meetingId}/guests/${userId}`).pipe(
       catchError(this.handleError)
     );
   }
