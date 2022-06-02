@@ -6,7 +6,7 @@ import { CheckboxModule } from 'primeng/checkbox';
 import { AuthService } from '../service/auth/auth.service';
 import { EventFormComponent } from './event-form.component';
 
-describe('RegisterFormComponent', () => {
+describe('EventFormComponent', () => {
   let component: EventFormComponent;
   let fixture: ComponentFixture<EventFormComponent>;
   let authServiceStub: Partial<AuthService>;
