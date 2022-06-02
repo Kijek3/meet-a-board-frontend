@@ -10,6 +10,7 @@ import { MeetingService } from 'src/app/service/meeting/meeting.service';
 })
 export class MeetingDetailsComponent implements OnInit {
   meetingItem: MeetingItem;
+  meetingDate: string;
 
   constructor(
     private route: ActivatedRoute,
@@ -23,6 +24,15 @@ export class MeetingDetailsComponent implements OnInit {
   private getMeeting(): void {
     this.meetingService.getMeeting(this.route.snapshot.paramMap.get('id')).subscribe((meeting: MeetingItem) => {
       this.meetingItem = meeting;
+      this.parseDate();
     });
+  }
+
+  private parseDate(): void {
+    this.meetingDate = new Date(this.meetingItem.date).toLocaleDateString('pl', { day: 'numeric', month: 'long' });
+  }
+
+  openGame(s: string) {
+    window.location.href=(`https://gameboardgeek.com/boardgame/${s}`);
   }
 }

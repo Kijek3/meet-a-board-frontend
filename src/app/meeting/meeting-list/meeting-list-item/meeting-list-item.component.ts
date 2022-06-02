@@ -14,7 +14,7 @@ export class MeetingListItemComponent implements OnInit {
     this.parseDate();
   }
 
-  private parseDate(): void {
+  parseDate(): void {
     this.meetingDate = new Date(this.meetingItem.date).toLocaleDateString('pl', { day: 'numeric', month: 'long' });
   }
 }
