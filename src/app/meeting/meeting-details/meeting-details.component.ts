@@ -99,7 +99,7 @@ export class MeetingDetailsComponent implements OnInit {
   }
 
   private checkAccess(): void {
-    if (this.meetingItem.userId === this.authService.userId) {
+    if (this.meetingItem?.userId === this.authService.userId) {
       this.isOwner = true;
     }
     this.meetingItem?.guests?.forEach(guest => {
@@ -122,9 +122,5 @@ export class MeetingDetailsComponent implements OnInit {
 
   private parseDate(): void {
     this.meetingDate = new Date(this.meetingItem.date).toLocaleDateString('pl', { day: 'numeric', month: 'long' });
-  }
-
-  openGame(s: string) {
-    window.location.href=(`https://gameboardgeek.com/boardgame/${s}`);
   }
 }
