@@ -102,7 +102,7 @@ describe('MeetingSearchComponent', () => {
 
   it('should call searchMeetings with filters', () => {
     component.city = 'Aaa';
-    component.minPlayers = 2
+    component.minPlayers = 2;
     const expectedFilter: Filter = {
       search: 'abc',
       minDate: undefined,
