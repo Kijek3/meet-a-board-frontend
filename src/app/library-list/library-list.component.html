@@ -14,7 +14,7 @@
   <ng-template pTemplate="header">
     <span class="p-input-icon-left w-12 mr-3">
       <i class="pi pi-search"></i>
-      <input type="text" pInputText class="w-12" placeholder="Wyszukaj grę" [(ngModel)]="searchValue" (keydown)="onSearch($event)"/>
+      <input type="text" pInputText class="w-12" placeholder="Wyszukaj grę" [(ngModel)]="searchValue" (keyup.enter)="onSearch()"/>
     </span>
   </ng-template>
   <div *ngIf="searchLoading" class="flex justify-content-center align-items-center">

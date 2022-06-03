@@ -30,8 +30,8 @@ export class LibraryListComponent implements OnInit {
     this.isSearchVisible = true;
   }
 
-  onSearch(event: KeyboardEvent) {
-    if (event.key === 'Enter' && this.searchValue?.length >= 2) {
+  onSearch() {
+    if (this.searchValue?.length >= 2) {
       this.searchLoading = true;
       this.libraryService.searchGame(this.searchValue).subscribe({
         next: (games: Game[]) => {
