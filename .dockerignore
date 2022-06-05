@@ -1,0 +1,7 @@
+.angular
+.github
+.vscode
+coverage
+dist
+node_modules
+uml
