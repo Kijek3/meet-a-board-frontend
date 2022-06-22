@@ -8,6 +8,7 @@ import jwtDecode from 'jwt-decode';
 import { TokenInfo } from 'src/app/model/token.model';
 import { Router } from '@angular/router';
 import { UserInfo } from 'src/app/model/user.model';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root',
@@ -58,7 +59,7 @@ export class AuthService {
   }
 
   login(args: LoginForm): Observable<void> {
-    return this.http.post<LoginResponse>('http://localhost:8000/auth/login', { ...args }).pipe(
+    return this.http.post<LoginResponse>(`${environment.API_url}/auth/login`, { ...args }).pipe(
       catchError(this.handleError)
     ).pipe(
       map(result => {
@@ -70,7 +71,7 @@ export class AuthService {
   }
 
   register(args: RegisterForm): Observable<void> {
-    return this.http.put<LoginResponse>('http://localhost:8000/auth/register', { ...args }).pipe(
+    return this.http.put<LoginResponse>(`${environment.API_url}/auth/register`, { ...args }).pipe(
       catchError(this.handleError)
     ).pipe(
       map(result => {
@@ -82,7 +83,7 @@ export class AuthService {
   }
 
   getUserInfo(id: string): Observable<UserInfo> {
-    return this.http.get<UserInfo>(`http://localhost:8000/user/${id}`).pipe(
+    return this.http.get<UserInfo>(`${environment.API_url}/user/${id}`).pipe(
       catchError(this.handleError)
     );
   }
