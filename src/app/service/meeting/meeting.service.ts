@@ -3,6 +3,7 @@ import { EventEmitter, Injectable } from '@angular/core';
 import { catchError, Observable, throwError } from 'rxjs';
 import { MeetingItem } from 'src/app/model/meeting.model';
 import { Filter, SortBy } from 'src/app/model/search.model';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root',
@@ -15,61 +16,61 @@ export class MeetingService {
   ) { }
 
   getMeetings(): Observable<MeetingItem[]> {
-    return this.http.post<MeetingItem[]>('http://localhost:8000/meeting', {}).pipe(
+    return this.http.post<MeetingItem[]>(`${environment.API_url}/meeting`, {}).pipe(
       catchError(this.handleError)
     );
   }
 
   searchMeetings(args: {filter: Filter, sortBy: SortBy}): Observable<MeetingItem[]> {
-    return this.http.post<MeetingItem[]>('http://localhost:8000/meeting', args).pipe(
+    return this.http.post<MeetingItem[]>(`${environment.API_url}/meeting`, args).pipe(
       catchError(this.handleError)
     );
   }
 
   getUserMeetings(): Observable<MeetingItem[]> {
-    return this.http.get<MeetingItem[]>('http://localhost:8000/meeting/userMeetings', {}).pipe(
+    return this.http.get<MeetingItem[]>(`${environment.API_url}/meeting/userMeetings`, {}).pipe(
       catchError(this.handleError)
     );
   }
 
   getJoinedMeetings(): Observable<MeetingItem[]> {
-    return this.http.get<MeetingItem[]>('http://localhost:8000/meeting/joinedMeetings', {}).pipe(
+    return this.http.get<MeetingItem[]>(`${environment.API_url}/meeting/joinedMeetings`, {}).pipe(
       catchError(this.handleError)
     );
   }
   
   addMeeting(meetingItem: MeetingItem): Observable<MeetingItem> {
-    return this.http.put<MeetingItem>('http://localhost:8000/meeting', meetingItem).pipe(
+    return this.http.put<MeetingItem>(`${environment.API_url}/meeting`, meetingItem).pipe(
       catchError(this.handleError)
     );
   }
 
   removeMeeting(id: string): Observable<MeetingItem> {
-    return this.http.delete<MeetingItem>(`http://localhost:8000/meeting/${id}`).pipe(
+    return this.http.delete<MeetingItem>(`${environment.API_url}/meeting/${id}`).pipe(
       catchError(this.handleError)
     );
   }
 
   getMeeting(id: string): Observable<MeetingItem> {
-    return this.http.get<MeetingItem>(`http://localhost:8000/meeting/${id}`).pipe(
+    return this.http.get<MeetingItem>(`${environment.API_url}/meeting/${id}`).pipe(
       catchError(this.handleError)
     );
   }
 
   joinMeeting(id: string): Observable<void> {
-    return this.http.post<void>(`http://localhost:8000/meeting/${id}`, {}).pipe(
+    return this.http.post<void>(`${environment.API_url}/meeting/${id}`, {}).pipe(
       catchError(this.handleError)
     );
   }
 
   acceptGuest(meetingId: string, userId: string): Observable<void> {
-    return this.http.patch<void>(`http://localhost:8000/meeting/${meetingId}/guests`, { userId }).pipe(
+    return this.http.patch<void>(`${environment.API_url}/meeting/${meetingId}/guests`, { userId }).pipe(
       catchError(this.handleError)
     );
   }
 
   declineGuest(meetingId: string, userId: string): Observable<void> {
-    return this.http.delete<void>(`http://localhost:8000/meeting/${meetingId}/guests/${userId}`).pipe(
+    return this.http.delete<void>(`${environment.API_url}/meeting/${meetingId}/guests/${userId}`).pipe(
       catchError(this.handleError)
     );
   }
